@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="{{ url_for('static', filename='bg3.mp4') }}" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="container">
+        <h1>Summary Result</h1>
+        <p><strong>Summary:</strong> {{ summary }}</p>
+        <div class="download-buttons">
+            <a href="{{ url_for('download_text', summary=summary) }}" class="btn">Download Summary as Text</a>
+            <a href="{{ url_for('download_pdf', summary=summary) }}" class="btn">Download Summary as PDF</a>
+        </div>
+        
+        <a href="{{ url_for('index') }}">Back to Home</a>
+    </div>
+</body>
+</html>
+

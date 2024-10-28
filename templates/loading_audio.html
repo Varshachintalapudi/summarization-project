@@ -1,0 +1,49 @@
+<!-- templates/loading_audio.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Audio...</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <video autoplay muted loop id="background-video">
+        <source src="{{ url_for('static', filename='bg3.mp4') }}" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="container">
+        <h1>Please Wait, Processing Your Audio/Video Request...</h1>
+
+        <!-- Spinner -->
+        <div class="spinner" id="spinner"></div>
+
+        <script>
+            $(document).ready(function() {
+                var formData = {{ form_data|tojson }};  // Retrieve form data passed from Flask
+        
+                $.ajax({
+                    url: formData.url,  // The route to summarize audio
+                    type: 'POST',
+                    data: JSON.stringify(formData.data),
+                    contentType: 'application/json',
+                    success: function(data) {
+                        if (data.summary && data.headline) {
+                            // Once the audio summarization is done, redirect to the result page
+                            window.location.href = "/result_audio?summary=" + encodeURIComponent(data.summary) + "&headline=" + encodeURIComponent(data.headline);
+                        } else {
+                            alert('No summary or headline returned from server.');
+                        }
+                    },
+                    error: function() {
+                        $('#spinner').hide();
+                        alert('An error occurred while summarizing.');
+                    }
+                });
+            });
+        </script>
+        
+    </div>
+</body>
+</html>

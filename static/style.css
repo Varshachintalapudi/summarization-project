@@ -1,0 +1,191 @@
+html, body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent; /* Make body background transparent */
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video fills the entire area */
+    z-index: -1;
+}
+
+.container {
+    width: 400px;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Adds a blur effect to the background */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #f0f0f0;
+   
+}
+
+button {
+    width: 100%;
+    padding: 18px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    margin-bottom: 15px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+input[type="file"], textarea, select {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 18px;
+}
+
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    margin-bottom: 20px;
+    resize: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+textarea::placeholder {
+    color: #ccc;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+select {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    appearance: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 0 auto 20px auto; 
+    margin: 0 auto 20px auto;
+    text-align: center; /* Center the text inside the dropdown */
+    text-align-last: center;
+}
+
+.spinner {
+    display: inline-block;
+    margin: 20px auto;
+    width: 50px;
+    height: 50px;
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #007bff;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+option {
+    background-color: #fff; /* Ensure the dropdown options have a distinct background */
+    color: #000; /* Set the text color to black for visibility */
+}
+.welcome-text {
+    font-size: 36px;
+    opacity: 0;
+    position: relative;
+    animation: slideDown 2s ease-out forwards; /* Animating from top */
+}
+
+.get-started {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    opacity: 0;
+    position: relative;
+    animation: slideUp 2.5s ease-out forwards; /* Animating from bottom */
+    cursor: pointer;
+}
+languageSelect {
+    width: 250px; /* Adjust the width as per your needs */
+    max-height: 150px; /* Adjust this height */
+    overflow-y: auto; /* Add scroll bar if needed */
+   
+}
+
+.get-started:hover {
+    background-color: #0056b3;
+}
+
+/* Animations */
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        top: -50px; /* Starting above the screen */
+    }
+    100% {
+        opacity: 1;
+        top: 0; /* Ending at its natural position */
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        bottom: -50px; /* Starting below the screen */
+    }
+    100% {
+        opacity: 1;
+        bottom: 0; /* Ending at its natural position */
+    }
+}
+
+
